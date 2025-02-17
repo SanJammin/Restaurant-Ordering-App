@@ -1,0 +1,10 @@
+Requirements:
+    Follow design spec - https://www.figma.com/design/UqGFBvDEFaqtKvq7ZgJAN2/Mobile-Restaurant-Menu-(Copy)?node-id=0-1&p=f&t=pQg4diw05byEvDqz-0
+    Render the menu options using Javascript
+    Be able to add/remove items
+    Have a payment modal with compulsory form inputs
+
+Stretch Goals
+    Change the theme
+    Offer a "meal deal" discount
+    Allow users to rate their experience
