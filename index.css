@@ -3,7 +3,6 @@
 body {
     font-family: "Smythe", sans-serif;
     margin: 0;
-    max-width: 600px;
     padding: 0;
 }
 
@@ -11,12 +10,14 @@ body {
 
 header {
     background-image: url(burger-header.png);
+    background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     color: white;
     height: 167px;
+    max-width: 600px;
+    margin: 0 auto;
     padding: 46px;
-    width: 100vw;
 }
 
 /* Section Level - Header */
@@ -38,18 +39,24 @@ header {
 /* Section Level - Menu */
 
 .menu {
+    align-items: center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    max-width: 600px;
     margin: 0 auto;
     padding: 0;
+    width: 100%;
 }
 
 .menu-item {
     align-items: center;
     border-bottom: 1px solid #D2D2D2;
     display: flex;
-    margin-left: 50px;
+    justify-content: space-between;
+    margin: 0 auto;
     padding: 52px 0 51px 0;
+    width: 100%;
 }
 
 .menu-item-emoji {
@@ -96,6 +103,11 @@ header {
 
 /* Section Level - Order */
 
+
+.order {
+    margin: 0 auto;
+    max-width: 600px;
+}
 
 .your-order {
     text-align: center;
@@ -151,6 +163,39 @@ header {
     height: 60px;
     margin: 0 0 50px 50px;
     width: 508px;
+}
+
+/* Section Level - Payment Modal */
+
+.payment-modal {
+    align-items: center;
+    background-color: white;
+    border: none;
+    box-shadow: 0 0 10px black;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 542px;
+    position: fixed;
+        top: 50%;
+        left: 50%;
+    text-align: center;
+    transform: translate(-50%,-50%);
+    width: 524px;
+}
+
+.payment-details {
+    font-size: 24px;
+}
+
+.user-details {
+    border: 1px solid #757575;
+    border-radius: 4px;
+    font-size: 20px;
+    height: 71px;
+    padding: 23px;
+    width: 476px;
 }
 
 /* Utility Classes */
