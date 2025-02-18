@@ -1,60 +1,63 @@
+/* Layout */
+
 body {
-    margin: 0;
-    padding: 0;
     font-family: "Smythe", sans-serif;
+    margin: 0;
     max-width: 600px;
+    padding: 0;
 }
 
-/* Header */
+/* Structural */
 
 header {
     background-image: url(burger-header.png);
-    background-size: contain;
     background-repeat: no-repeat;
-    width: 100vw;
+    background-size: contain;
     color: white;
-    padding: 46px;
-    width: 600px;
     height: 167px;
     margin-bottom: -50px;
+    padding: 46px;
+    width: 100vw;
 }
 
+/* Section Level - Header */
+
 .diner-name {
-    margin: 0;
     font-size: 39px;
-    line-height: 24px;
     font-weight: lighter;
+    line-height: 24px;
+    margin: 0;
 }
 
 .tagline {
-    padding-top: 19px;
-    margin: 0;
-    font-weight: lighter;
     font-size: 22px;
+    font-weight: lighter;
+    margin: 0;
+    padding-top: 19px;
 }
 
-/* Menu */
+/* Section Level - Menu */
 
 .menu {
-    margin: 0 auto;
-    padding: 0;
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
+    padding: 0;
 }
 
 .menu-item {
-    display: flex;
     align-items: center;
     border-bottom: 1px solid #D2D2D2;
+    display: flex;
     margin-left: 50px;
     padding: 52px 0 51px 0;
 }
 
 .menu-item-emoji {
-    margin: 0;
-    padding-right: 31px;
     font-size: 79px;
     font-family: "Inter", sans-serif;
+    margin: 0;
+    padding-right: 31px;
 }
 
 .menu-item-description {
@@ -63,34 +66,40 @@ header {
 }
 
 .menu-item-name {
-    margin: 0;
-    font-weight: lighter;
     font-size: 28px;
+    font-weight: lighter;
+    margin: 0;
 }
 
 .menu-item-ingredients {
-    margin: 0;
     color: #8B8B8B;
     font-size: 16px;
+    margin: 0;
 }
 
 .menu-item-price {
-    margin: 0;
     font-size: 20px;
+    margin: 0;
     padding-top: 8px;
 }
 
 .add-item {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
     background-color: white;
     border: 1px solid #DEDEDE;
+    border-radius: 50%;
     font-family: "Inter", sans-serif;
     font-size: 32px;
     font-weight: lighter;
+    height: 50px;
     margin-left: auto;
+    width: 50px;
 }
 
-/* Order */
+/* Utility Classes */
+
+.hidden {
+    display: none;
+}
+
+/* Make each selector alphabetical */
 
