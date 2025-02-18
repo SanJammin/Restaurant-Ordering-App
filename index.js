@@ -47,6 +47,8 @@ function handleAddItem(itemId){
 
 function handleRemoveItem(removeBtn) {
     const itemContent = removeBtn.closest(".item-content");
+    if (!itemContent) return;
+
     const priceText = itemContent.querySelector(".price").textContent;
     const itemPrice = Number(priceText.replace("$", ""));
 
@@ -65,11 +67,7 @@ function updateTotal(price) {
         <p class="price">$${total}</p>
     `;
 
-    if (total <= 0) {
-        order.classList.add("hidden");
-    } else {
-        order.classList.remove("hidden");
-    };
+    order.classList.toggle("hidden", total <= 0);
 };
 
 function getMenuHtml () {

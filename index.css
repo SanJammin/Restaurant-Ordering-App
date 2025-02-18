@@ -6,6 +6,12 @@ body {
     padding: 0;
 }
 
+/* Utility Classes */
+
+.hidden {
+    display: none;
+}
+
 /* Structural */
 
 header {
@@ -213,11 +219,6 @@ header {
     width: 483px;
 }
 
-/* Utility Classes */
 
-.hidden {
-    display: none;
-}
 
-/* Make each selector alphabetical */
 

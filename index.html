@@ -35,9 +35,9 @@
     <!-- Payment Modal -->
     <form class="payment-modal hidden" id="payment-modal">
         <h3 class="payment-details">Enter card details</h3>
-        <input placeholder="Enter your name" class="user-details" id="user-name" required>
-        <input placeholder="Enter card number" class="user-details" id="user-card-details" required>
-        <input placeholder="Enter CVV" class="user-details id="user-cvv">
+        <input placeholder="Enter your name" class="user-details" id="user-name" aria-label="Full Name." required>
+        <input placeholder="Enter card number" class="user-details" id="user-card-details" aria-label="Long Card Number." required>
+        <input placeholder="Enter CVV" class="user-details" id="user-cvv" aria-label="CVV" required>
         <button class="pay-btn" id="pay-btn" type="submit">Pay</button>
     </form>
     <script src="index.js" type="module"></script>
