@@ -10,6 +10,8 @@ document.addEventListener("click", function(e){
         handleAddItem(itemId);
     } else if (e.target.classList.contains("remove")) {
         handleRemoveItem(e.target);
+    } else if (e.target.classList.contains("purchase-btn")){
+        handleOrder();
     };
 });
 
@@ -51,6 +53,10 @@ function handleRemoveItem(removeBtn) {
     itemContent.remove();
     updateTotal(-itemPrice);
 };
+
+function handleOrder() {
+    document.getElementById("payment-modal").classList.remove("hidden");
+}
 
 function updateTotal(price) {
     total += price;
