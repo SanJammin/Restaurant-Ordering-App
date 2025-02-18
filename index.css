@@ -95,6 +95,59 @@ header {
     width: 50px;
 }
 
+/* Section Level - Order */
+
+.order {
+    display: flex;
+    flex-direction: column;
+}
+
+.your-order {
+    text-align: center;
+}
+
+.order-item {
+    display: flex;
+    margin-left: 50px;
+}
+
+.item-name {
+    font-size: 28px;
+}
+
+.remove {
+    color: #BBBBBB;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    border: none;
+    background: none;
+}
+
+.price {
+    font-size: 20px;
+    margin-left: auto;
+}
+
+.total-price {
+    border-top: 2px solid #393333;
+    display: flex;
+    font-size: 28px;
+    margin-left: 50px;
+}
+
+.purchase-btn {
+    background-color: #16DB99;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    height: 60px;
+    margin: 0 0 50px 50px;
+    width: 508px;
+}
+
 /* Utility Classes */
 
 .hidden {

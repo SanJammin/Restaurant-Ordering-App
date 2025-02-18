@@ -8,11 +8,25 @@ document.addEventListener("click", function(e){
 });
 
 function handleAddItem(itemId){
-    document.getElementById("order").classList.remove("hidden");
-
     const targetItemObj = menuArray.filter(function(item){
         return item.id === itemId;
     })[0];
+
+    const orderItem = document.getElementById("order-item");
+
+    orderItem.innerHTML += `
+            <p class="item-name">${targetItemObj.name}</p>
+            <button class="remove">remove</button>
+            <p class="price">$${targetItemObj.price}</p>
+            `
+    //      
+    //      <div class="total-price">
+    //         <p>Total Price:</p>
+    //         <p class="price">$26</p>
+    //      </div>
+    //      <button class="purchase-btn">Complete Order</button>
+    // `
+    
 };
 
 function getMenuHtml () {
@@ -37,6 +51,10 @@ function getMenuHtml () {
 
 function renderMenu() {
     document.getElementById("menu").innerHTML = getMenuHtml();
+}
+
+function renderOrder() {
+    document.getElementById("order").innerHTML = handleAddItem();
 }
 
 renderMenu();
