@@ -15,7 +15,6 @@ header {
     background-size: contain;
     color: white;
     height: 167px;
-    margin-bottom: -50px;
     padding: 46px;
     width: 100vw;
 }
@@ -109,11 +108,11 @@ header {
 }
 
 .item-content {
+    align-items: center;
     display: flex;  
     flex-direction: row;
     margin-top: -10px;
     max-width: 100vw;
-    padding: 0;
     width: 100%;
 }
 

@@ -10,35 +10,45 @@ document.addEventListener("click", function(e){
 });
 
 function handleAddItem(itemId){
-    const targetItemObj = menuArray.filter(function(item){
-        return item.id === itemId;
-    })[0];
-
+    const targetItemObj = menuArray.find(item =>
+        item.id === itemId);
+    
     const orderItem = document.getElementById("order-item");
 
-    orderItem.innerHTML += `
-            <div class="item-content">
-                <p class="item-name">${targetItemObj.name}</p>
-                <button class="remove">remove</button>
-                <p class="price">$${targetItemObj.price}</p>
-            </div>
-            `
-    
-    const totalPrice = document.getElementById("total-price");
+    const itemContent = document.createElement("div");
+    itemContent.classList.add("item-content");
 
-    total += targetItemObj.price;
+    const itemName = document.createElement("p");
+    itemName.classList.add("item-name");
+    itemName.textContent = targetItemObj.name;
 
-    totalPrice.innerHTML=`
-        <p>Total Price:</p>
-        <p class="price">$${total}</p>
-    `
+    const removeBtn = document.createElement("button");
+    removeBtn.classList.add("remove");
+    removeBtn.textContent = "remove";
+
+    const price = document.createElement("p");
+    price.classList.add("price");
+    price.textContent = `$${targetItemObj.price}`;
+
+    itemContent.appendChild(itemName);
+    itemContent.appendChild(removeBtn);
+    itemContent.appendChild(price);
+
+    orderItem.appendChild(itemContent);
+
+    updateTotal(targetItemObj.price);
 };
 
-function getMenuHtml () {
-    let menuHtml = ``;
+function updateTotal(price) {
+    total += price;
+    document.getElementById("total-price").innerHTML = `
+        <p>Total Price:</p>
+        <p class="price">$${total}</p>
+    `;
+}
 
-    menuArray.forEach(item => {
-        menuHtml += `
+function getMenuHtml () {
+    return menuArray.map(item => `
             <div class="menu-item">
                 <p class="menu-item-emoji">${item.emoji}</p>
                 <div class="menu-item-description">
@@ -49,17 +59,12 @@ function getMenuHtml () {
                 <button class="add-item" id="${item.id}">+</button>
             </div>
         `
-    });
-
-    return menuHtml;
+    ).join("");
 };
 
 function renderMenu() {
     document.getElementById("menu").innerHTML = getMenuHtml();
 }
 
-function renderOrder() {
-    document.getElementById("order").innerHTML = handleAddItem();
-}
 
 renderMenu();
