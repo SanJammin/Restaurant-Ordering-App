@@ -16,6 +16,7 @@ header {
     padding: 46px;
     width: 600px;
     height: 167px;
+    margin-bottom: -50px;
 }
 
 .diner-name {
@@ -33,3 +34,59 @@ header {
 }
 
 /* Body (In JS) */
+
+.menu {
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #D2D2D2;
+    margin-left: 50px;
+    padding: 52px 0 51px 0;
+}
+
+.menu-item-emoji {
+    margin: 0;
+    padding-right: 31px;
+    font-size: 79px;
+    font-family: "Inter", sans-serif;
+}
+
+.menu-item-description {
+    margin: 0;
+    padding: 0;
+}
+
+.menu-item-name {
+    margin: 0;
+    font-weight: lighter;
+    font-size: 28px;
+}
+
+.menu-item-ingredients {
+    margin: 0;
+    color: #8B8B8B;
+    font-size: 16px;
+}
+
+.menu-item-price {
+    margin: 0;
+    font-size: 20px;
+}
+
+.add-item {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid #DEDEDE;
+    font-family: "Inter", sans-serif;
+    font-size: 32px;
+    font-weight: lighter;
+    margin-left: auto;
+}
