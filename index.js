@@ -1,5 +1,20 @@
 import { menuArray } from "./data.js";
 
+document.addEventListener("click", function(e){
+    if (e.target.classList.contains("add-item")) {
+        const itemId = Number(e.target.id);
+        handleAddItem(itemId);
+    }
+});
+
+function handleAddItem(itemId){
+    document.getElementById("order").classList.remove("hidden");
+
+    const targetItemObj = menuArray.filter(function(item){
+        return item.id === itemId;
+    })[0];
+};
+
 function getMenuHtml () {
     let menuHtml = ``;
 
@@ -12,7 +27,7 @@ function getMenuHtml () {
                     <p class="menu-item-ingredients">${item.ingredients.join(", ")}</p>
                     <p class="menu-item-price">$${item.price}</p>
                 </div>
-                <button class="add-item">+</button>
+                <button class="add-item" id="${item.id}">+</button>
             </div>
         `
     });
@@ -20,8 +35,8 @@ function getMenuHtml () {
     return menuHtml;
 };
 
-function render() {
+function renderMenu() {
     document.getElementById("menu").innerHTML = getMenuHtml();
 }
 
-render();
+renderMenu();
