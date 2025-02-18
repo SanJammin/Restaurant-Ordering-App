@@ -97,10 +97,6 @@ header {
 
 /* Section Level - Order */
 
-.order {
-    display: flex;
-    flex-direction: column;
-}
 
 .your-order {
     text-align: center;
@@ -108,7 +104,17 @@ header {
 
 .order-item {
     display: flex;
+    flex-direction: column;
     margin-left: 50px;
+}
+
+.item-content {
+    display: flex;  
+    flex-direction: row;
+    margin-top: -10px;
+    max-width: 100vw;
+    padding: 0;
+    width: 100%;
 }
 
 .item-name {

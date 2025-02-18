@@ -1,5 +1,7 @@
 import { menuArray } from "./data.js";
 
+let total = 0;
+
 document.addEventListener("click", function(e){
     if (e.target.classList.contains("add-item")) {
         const itemId = Number(e.target.id);
@@ -15,18 +17,21 @@ function handleAddItem(itemId){
     const orderItem = document.getElementById("order-item");
 
     orderItem.innerHTML += `
-            <p class="item-name">${targetItemObj.name}</p>
-            <button class="remove">remove</button>
-            <p class="price">$${targetItemObj.price}</p>
+            <div class="item-content">
+                <p class="item-name">${targetItemObj.name}</p>
+                <button class="remove">remove</button>
+                <p class="price">$${targetItemObj.price}</p>
+            </div>
             `
-    //      
-    //      <div class="total-price">
-    //         <p>Total Price:</p>
-    //         <p class="price">$26</p>
-    //      </div>
-    //      <button class="purchase-btn">Complete Order</button>
-    // `
     
+    const totalPrice = document.getElementById("total-price");
+
+    total += targetItemObj.price;
+
+    totalPrice.innerHTML=`
+        <p>Total Price:</p>
+        <p class="price">$${total}</p>
+    `
 };
 
 function getMenuHtml () {
