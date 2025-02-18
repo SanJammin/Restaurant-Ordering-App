@@ -1,5 +1,7 @@
 import { menuArray } from "./data.js";
 
+const order = document.getElementById("order");
+
 let total = 0;
 
 document.addEventListener("click", function(e){
@@ -56,6 +58,12 @@ function updateTotal(price) {
         <p>Total Price:</p>
         <p class="price">$${total}</p>
     `;
+
+    if (total <= 0) {
+        order.classList.add("hidden");
+    } else {
+        order.classList.remove("hidden");
+    };
 };
 
 function getMenuHtml () {
