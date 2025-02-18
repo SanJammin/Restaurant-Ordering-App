@@ -45,7 +45,7 @@ function handleAddItem(itemId){
 
 function handleRemoveItem(removeBtn) {
     const itemContent = removeBtn.closest(".item-content");
-    const priceText = document.querySelector(".price").textContent;
+    const priceText = itemContent.querySelector(".price").textContent;
     const itemPrice = Number(priceText.replace("$", ""));
 
     itemContent.remove();
