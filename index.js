@@ -6,7 +6,9 @@ document.addEventListener("click", function(e){
     if (e.target.classList.contains("add-item")) {
         const itemId = Number(e.target.id);
         handleAddItem(itemId);
-    }
+    } else if (e.target.classList.contains("remove")) {
+        handleRemoveItem(e.target);
+    };
 });
 
 function handleAddItem(itemId){
@@ -39,13 +41,22 @@ function handleAddItem(itemId){
     updateTotal(targetItemObj.price);
 };
 
+function handleRemoveItem(removeBtn) {
+    const itemContent = removeBtn.closest(".item-content");
+    const priceText = document.querySelector(".price").textContent;
+    const itemPrice = Number(priceText.replace("$", ""));
+
+    itemContent.remove();
+    updateTotal(-itemPrice);
+};
+
 function updateTotal(price) {
     total += price;
     document.getElementById("total-price").innerHTML = `
         <p>Total Price:</p>
         <p class="price">$${total}</p>
     `;
-}
+};
 
 function getMenuHtml () {
     return menuArray.map(item => `
@@ -64,7 +75,7 @@ function getMenuHtml () {
 
 function renderMenu() {
     document.getElementById("menu").innerHTML = getMenuHtml();
-}
+};
 
 
 renderMenu();
