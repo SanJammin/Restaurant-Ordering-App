@@ -235,6 +235,36 @@ header {
     text-align: center;
 }
 
+#rating-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#rating-section p {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#star-container {
+    cursor: pointer;
+    font-size: 35px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+#star-container .star {
+    color: black;
+    margin: 0 8px;
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+#star-container .star:hover,
+#star-container .star.active {  
+    color: #16DB99;
+}
+
 
 /* Utility Classes */
 

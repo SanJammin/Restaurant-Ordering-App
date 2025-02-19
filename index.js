@@ -17,6 +17,19 @@ document.addEventListener("click", function(e){
         handleOrder();
     } else if (e.target.classList.contains("exit-btn")){
         handleExit();
+    } else if (e.target.classList.contains("star")){
+        let stars = [...document.querySelectorAll(".star")];
+        let index = stars.indexOf(e.target);
+
+        stars.forEach((star, i) => {
+            if (i <= index) {
+                star.textContent = "★";
+                star.classList.add("active");
+            } else {
+                star.textContent = "☆";
+                star.classList.remove("active");
+            };
+        });
     };
 });
 
@@ -93,7 +106,19 @@ function handleExit() {
 function handlePayment() {
     document.getElementById("payment-modal").classList.add("hidden");
     document.getElementById("order").innerHTML = `
-        <p class="thank-you">Thanks, ${document.getElementById("user-name").value}! Your order is on its way!</p>
+        <p class="thank-you">
+            Thanks, ${document.getElementById("user-name").value}! Your order is on its way!
+        </p>
+        <div id="rating-section">
+            <p>Rate your experience:</p>
+            <div id="star-container">
+               <span class="star">☆</span>
+               <span class="star">☆</span>
+               <span class="star">☆</span>
+               <span class="star">☆</span>
+               <span class="star">☆</span>
+            </div>
+        </div> 
     `
 };
 
