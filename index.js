@@ -3,6 +3,8 @@ import { menuArray } from "./data.js";
 const order = document.getElementById("order");
 
 let total = 0;
+let numDrinks = 0;
+let numbFoodItems = 0;
 
 document.addEventListener("click", function(e){
     if (e.target.classList.contains("add-item")) {
@@ -49,7 +51,7 @@ function handleAddItem(itemId){
 
     orderItem.appendChild(itemContent);
 
-    updateTotal(targetItemObj.price);
+    updateTotal(targetItemObj.price, targetItemObj.category);
 };
 
 function handleRemoveItem(removeBtn) {
@@ -90,7 +92,7 @@ function handlePayment() {
     `
 };
 
-function updateTotal(price) {
+function updateTotal(price, category) {
     total += price;
     document.getElementById("total-price").innerHTML = `
         <p>Total Price:</p>
@@ -98,6 +100,12 @@ function updateTotal(price) {
     `;
 
     order.classList.toggle("hidden", total <= 0);
+
+    if(category === "drink") {
+        numDrinks++;
+    } else if (category === "food") {
+        numbFoodItems++;
+    };
 };
 
 function getMenuHtml () {
