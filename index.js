@@ -4,7 +4,8 @@ const order = document.getElementById("order");
 
 let total = 0;
 let numDrinks = 0;
-let numbFoodItems = 0;
+let numFoodItems = 0;
+let orderList = [];
 
 document.addEventListener("click", function(e){
     if (e.target.classList.contains("add-item")) {
@@ -51,7 +52,9 @@ function handleAddItem(itemId){
 
     orderItem.appendChild(itemContent);
 
-    updateTotal(targetItemObj.price, targetItemObj.category);
+    orderList.push(targetItemObj);
+
+    updateTotal();
 };
 
 function handleRemoveItem(removeBtn) {
@@ -92,20 +95,34 @@ function handlePayment() {
     `
 };
 
-function updateTotal(price, category) {
-    total += price;
+function updateTotal() {
+    numDrinks = orderList.filter(item => item.category === "drink").length;
+    numFoodItems = orderList.filter(item => item.category === "food").length;
+    let numPairs = Math.min(numDrinks, numFoodItems);
+    let discountedDrinks = 0;
+    let discountedFoodItems = 0;
+    let newTotal = 0;
+
+    orderList.forEach(item => {
+        let itemPrice = item.price;
+
+        if (item.category === "drink" && discountedDrinks < numPairs) {
+            itemPrice *= 0.9;
+        } else if (item.category === "food" && discountedFoodItems < numPairs) {
+            itemPrice *= 0.9;
+        };
+        
+        newTotal += itemPrice;
+    });
+
+    total = newTotal;
+
     document.getElementById("total-price").innerHTML = `
         <p>Total Price:</p>
-        <p class="price">$${total}</p>
-    `;
+        <p class="price">$${total.toFixed(2)}</p>
+    `
 
     order.classList.toggle("hidden", total <= 0);
-
-    if(category === "drink") {
-        numDrinks++;
-    } else if (category === "food") {
-        numbFoodItems++;
-    };
 };
 
 function getMenuHtml () {
