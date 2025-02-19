@@ -185,6 +185,17 @@ header {
     width: 524px;
 }
 
+.exit-btn {
+    background-color: white;
+    border: none;
+    color: #16DB99;
+    cursor: pointer;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    margin-left: auto;
+    padding: 10px 20px 0 0;
+}
+
 .payment-details {
     font-size: 24px;
     padding: 20px;

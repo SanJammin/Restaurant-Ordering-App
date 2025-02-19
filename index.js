@@ -12,6 +12,8 @@ document.addEventListener("click", function(e){
         handleRemoveItem(e.target);
     } else if (e.target.classList.contains("purchase-btn")){
         handleOrder();
+    } else if (e.target.classList.contains("exit-btn")){
+        handleExit();
     };
 });
 
@@ -65,8 +67,18 @@ function handleOrder() {
     document.getElementById("payment-modal").classList.remove("hidden");
     
     document.querySelectorAll("button").forEach((button) => {
-        if (button.id !== "pay-btn"){
+        if (button.id !== "pay-btn" && button.id!== "exit-btn"){
             button.disabled = true;
+        };
+    });
+};
+
+function handleExit() {
+    document.getElementById("payment-modal").classList.add("hidden");
+
+    document.querySelectorAll("button").forEach((button) => {
+        if (button.id !== "pay-btn" && button.id!== "exit-btn"){
+            button.disabled = false;
         };
     });
 };
