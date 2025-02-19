@@ -6,12 +6,6 @@ body {
     padding: 0;
 }
 
-/* Utility Classes */
-
-.hidden {
-    display: none;
-}
-
 /* Structural */
 
 header {
@@ -177,7 +171,7 @@ header {
     align-items: center;
     background-color: white;
     border: none;
-    box-shadow: 0 0 10px black;
+    box-shadow: 0 0 1000px black;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
@@ -220,5 +214,10 @@ header {
 }
 
 
+/* Utility Classes */
+
+.hidden {
+    display: none;
+}
 
 
