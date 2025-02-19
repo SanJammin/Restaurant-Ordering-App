@@ -61,11 +61,13 @@ function handleRemoveItem(removeBtn) {
     const itemContent = removeBtn.closest(".item-content");
     if (!itemContent) return;
 
-    const priceText = itemContent.querySelector(".price").textContent;
-    const itemPrice = Number(priceText.replace("$", ""));
+    const itemIndex = [...document.querySelectorAll(".item-content")].indexOf(itemContent);
+    if (itemIndex !== -1) {
+        orderList.splice(itemIndex,1);
+    }
 
     itemContent.remove();
-    updateTotal(-itemPrice);
+    updateTotal();
 };
 
 function handleOrder() {
@@ -103,15 +105,24 @@ function updateTotal() {
     let discountedFoodItems = 0;
     let newTotal = 0;
 
-    orderList.forEach(item => {
+    orderList.forEach((item, index) => {
         let itemPrice = item.price;
+        let itemElement = document.querySelectorAll(".item-content")[index];
+        let priceElement = itemElement.querySelector(".price");
 
         if (item.category === "drink" && discountedDrinks < numPairs) {
             itemPrice *= 0.9;
+            discountedDrinks++;
+            itemElement.classList.add("discounted");
         } else if (item.category === "food" && discountedFoodItems < numPairs) {
             itemPrice *= 0.9;
+            discountedFoodItems++;
+            itemElement.classList.add("discounted");
+        } else {
+            itemElement.classList.remove("discounted");
         };
-        
+
+        priceElement.textContent = `$${itemPrice.toFixed(2)}`;
         newTotal += itemPrice;
     });
 

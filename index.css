@@ -252,4 +252,9 @@ header {
     transform: scale(1);
 }
 
+.discounted {
+    color: #16DB99;
+    font-style: italic;
+}
+
 
