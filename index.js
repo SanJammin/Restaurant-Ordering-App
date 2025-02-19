@@ -63,6 +63,12 @@ function handleRemoveItem(removeBtn) {
 
 function handleOrder() {
     document.getElementById("payment-modal").classList.remove("hidden");
+    
+    document.querySelectorAll("button").forEach((button) => {
+        if (button.id !== "pay-btn"){
+            button.disabled = true;
+        };
+    });
 };
 
 function handlePayment() {
