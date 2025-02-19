@@ -15,6 +15,11 @@ document.addEventListener("click", function(e){
     };
 });
 
+document.getElementById("payment-modal").addEventListener("submit", (e) => {
+    e.preventDefault();
+    handlePayment();
+});
+
 function handleAddItem(itemId){
     const targetItemObj = menuArray.find(item =>
         item.id === itemId);
@@ -58,7 +63,14 @@ function handleRemoveItem(removeBtn) {
 
 function handleOrder() {
     document.getElementById("payment-modal").classList.remove("hidden");
-}
+};
+
+function handlePayment() {
+    document.getElementById("payment-modal").classList.add("hidden");
+    document.getElementById("order").innerHTML = `
+        <p class="thank-you">Thanks, ${document.getElementById("user-name").value}! Your order is on its way!</p>
+    `
+};
 
 function updateTotal(price) {
     total += price;

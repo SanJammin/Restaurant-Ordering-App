@@ -213,6 +213,17 @@ header {
     width: 483px;
 }
 
+/* Section Level - Thank you */
+
+.thank-you {
+    background-color: #ECFDF5;
+    color: #065F46;
+    font-size: 32px;
+    margin-top: 45px;
+    padding: 51px;
+    text-align: center;
+}
+
 
 /* Utility Classes */
 
